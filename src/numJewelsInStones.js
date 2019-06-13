@@ -28,7 +28,28 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let result = 0;
+  let stonesWithoutDigits = '';
+
+  for (let i = 0; i < stones.length; i++) {
+    if (typeof (stones[i]) === 'string') {
+      stonesWithoutDigits += stones[i];
+    }
+  }
+
+  if (stonesWithoutDigits === '') {
+    return 0;
+  }
+
+  for (let i = 0; i < stonesWithoutDigits.length; i++) {
+    for (let j = 0; j < jewels.length; j++) {
+      if (stonesWithoutDigits[i] === jewels[j]) {
+        result++;
+      }
+    }
+  }
+
+  return result;
 }
 
 module.exports = numJewelsInStones;
