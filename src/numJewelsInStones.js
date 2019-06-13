@@ -30,20 +30,17 @@
 function numJewelsInStones(jewels, stones) {
   let result = 0;
   let stonesWithoutDigits = '';
+  const alpabet = jewels.replace(/\s|[0-9_]|\W|[#$%^&*()]/g);
 
-  for (let i = 0; i < stones.length; i++) {
-    if (typeof (stones[i]) === 'string') {
-      stonesWithoutDigits += stones[i];
+  for (let i = 0; i < alpabet.length; i++) {
+    if (stonesWithoutDigits.indexOf(alpabet[i]) === -1) {
+      stonesWithoutDigits += alpabet[i];
     }
   }
 
-  if (stonesWithoutDigits === '') {
-    return 0;
-  }
-
   for (let i = 0; i < stonesWithoutDigits.length; i++) {
-    for (let j = 0; j < jewels.length; j++) {
-      if (stonesWithoutDigits[i] === jewels[j]) {
+    for (let j = 0; j < stones.length; j++) {
+      if (stonesWithoutDigits[i] === stones[j]) {
         result++;
       }
     }
