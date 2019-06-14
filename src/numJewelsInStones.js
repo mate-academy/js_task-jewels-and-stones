@@ -43,7 +43,6 @@ function numJewelsInStones(jewels, stones) {
       jewelsCount += 1;
     }
   }
-
   return jewelsCount;
 }
 
