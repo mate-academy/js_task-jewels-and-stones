@@ -27,8 +27,27 @@
  *
  * @return {number}
  */
-function numJewelsInStones(jewels, stones) {
-  // write code here
+function numJewelsInStones(jewels = 0, stones = 0) {
+  let result = 0;
+  if (stones.includes('_')) {
+    return result;
+  }
+  for (let i = 0; i < jewels.length; i++) {
+    for (let j = 0; j < stones.length; j++) {
+      if (jewels[i] === stones[j] && jewels[i] !== jewels[i + 1]) {
+        result += 1;
+      }
+    }
+  }
+  return result;
 }
+
+// numJewelsInStones('z', 'ZZZZZZ');
+// numJewelsInStones('z123!_', 'ZZZ!ZZZ123_1');
+// numJewelsInStones('zzzzZZZZZZZZ', 'zzzZZZZ');
+// numJewelsInStones('zZA', 'ZaZaAAazzzz');
+// numJewelsInStones('zZA', '');
+// numJewelsInStones('', 'AAaaLllDdoooo');
+// numJewelsInStones('', '');
 
 module.exports = numJewelsInStones;
