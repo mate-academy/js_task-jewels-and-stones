@@ -35,7 +35,7 @@ function numJewelsInStones(jewels, stones) {
       if (jewels[i] === stones[j] && jewels[i] !== jewels[i + 1]) {
         count++;
       }
-      if (stones.includes('_, !')) {
+      if (stones.includes('_')) {
         return count;
       };
     }
