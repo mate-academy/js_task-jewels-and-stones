@@ -27,8 +27,33 @@
  *
  * @return {number}
  */
-function numJewelsInStones(jewels, stones) {
-  // write code here
-}
+const numJewelsInStones = function(jewels, stones) {
+  let number = 0;
+  const notOurChars = '~!@#$%^&*()_+=-1234567890';
+  let jewelsNoDoubles = '';
+  let jewelsNoNumbers = '';
+
+  for (let i = 0; i < jewels.length; i++) {
+    if (jewels[i] !== jewels[i + 1]) {
+      jewelsNoDoubles += jewels[i];
+    }
+  }
+
+  for (let i = 0; i < jewelsNoDoubles.length; i++) {
+    if (notOurChars.indexOf(jewelsNoDoubles[i]) === -1) {
+      jewelsNoNumbers += jewelsNoDoubles[i];
+    }
+  }
+
+  for (let i = 0; i < jewelsNoNumbers.length; i++) {
+    for (let k = 0; k < stones.length; k++) {
+      if (jewelsNoNumbers[i] === stones[k]) {
+        number++;
+      }
+    }
+  }
+
+  return number;
+};
 
 module.exports = numJewelsInStones;
