@@ -27,8 +27,18 @@
  *
  * @return {number}
  */
-function numJewelsInStones(jewels, stones) {
-  // write code here
-}
+const numJewelsInStones = function(jewels, stones) {
+  let number = 0;
+
+  for (let i = 0; i < jewels.length; i++) {
+    for (let k = 0; k < stones.length; k++) {
+      if (jewels[i] === stones[k]) {
+        number++;
+      }
+    }
+  }
+
+  return number;
+};
 
 module.exports = numJewelsInStones;
