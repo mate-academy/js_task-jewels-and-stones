@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * You're given strings JEWELS representing the types of stones that are jewels,
  * and STONES representing the stones you have. Each character in STONES is
@@ -28,7 +27,14 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let sum = 0;
+  for (let i = 0; i < stones.length; i++) {
+    for (let y = 0; y < jewels.length; y++) {
+      if (jewels.charAt(y) === stones.charAt(i)) {
+        sum++;
+      }
+    }
+  }
+  return sum;
 }
-
 module.exports = numJewelsInStones;
