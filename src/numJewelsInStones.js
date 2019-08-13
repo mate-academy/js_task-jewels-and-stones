@@ -28,7 +28,22 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  const strSpecialSymbols = "=1234567890<>[]{}()?!+-*%^&:.,;|'\"\\/~`@#$_";
+  let count = 0;
+  for (let i = 0; i < stones.length; i++) {
+    if (stones.length < 0) {
+      return 0;
+    }
+    if (jewels.includes(strSpecialSymbols[i])) {
+      return 0;
+    }
+  }
+  for (let i = 0; i < stones.length; i++) {
+    if (jewels.includes(stones[i])) {
+      count++;
+    }
+  }
+  return count;
 }
 
 module.exports = numJewelsInStones;
