@@ -40,8 +40,8 @@ function numJewelsInStones(jewels, stones) {
   }
 
   for (let i = 0; i < jewelsArr.length; i += 1) {
-    const jewelsQuantity = stonesArr.filter(el => el === uniqueJewelsArr[i])
-      .length;
+    const jewelsQuantity = stonesArr
+      .filter(el => el === uniqueJewelsArr[i]).length;
     if (jewelsQuantity > 0) {
       total += jewelsQuantity;
     }
