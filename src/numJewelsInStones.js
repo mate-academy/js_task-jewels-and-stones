@@ -28,13 +28,13 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  const reg1 = new RegExp('[a-z]');
-  const reg2 = new RegExp('[A-Z]');
+  const reg = new RegExp('[a-zA-Z]');
 
   const jewelsDistinct = [...new Set(jewels)]
-    .filter(char => reg1.test(char) || reg2.test(char));
+    .filter(char => reg.test(char));
+
   const stoneArray = Array.from(stones)
-    .filter(char => reg1.test(char) || reg2.test(char));
+    .filter(char => reg.test(char));
 
   let count = 0;
 
