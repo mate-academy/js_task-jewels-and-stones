@@ -29,6 +29,15 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
+  if (jewels.length === 0) {
+    return 0;
+  } else {
+    const jewelsSort = jewels.replace(/[^a-zA-Z ]/g, '').split('').join('|');
+    const jewelsExp = new RegExp(jewelsSort, 'g');
+    const result = (stones.match(jewelsExp) || []).length;
+
+    return result;
+  }
 }
 
 module.exports = numJewelsInStones;
