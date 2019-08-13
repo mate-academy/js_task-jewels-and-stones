@@ -28,7 +28,19 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  const firstString = jewels.replace(/[1234567890_!]/gi, '');
+  const secondString = stones.replace(/[1234567890_!]/gi, '');
+  if (firstString === '' || secondString === '') {
+    return 0;
+  } else {
+    let sum = 0;
+    for (let i = 0; i < secondString.length; i++) {
+      if (firstString.includes(secondString[i])) {
+        sum++;
+      }
+    }
+    return sum;
+  }
 }
 
 module.exports = numJewelsInStones;
