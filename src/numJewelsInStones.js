@@ -28,7 +28,18 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let count = 0;
+  const x = [...new Set(jewels.split(''))]
+    .toString()
+    .replace(/[^a-zA-Z ]/g, '');
+  for (let i = 0; i < x.length; i++) {
+    for (let j = 0; j < stones.length; j++) {
+      if (x[i] === stones[j]) {
+        count++;
+      }
+    }
+  }
+  return count;
 }
 
 module.exports = numJewelsInStones;
