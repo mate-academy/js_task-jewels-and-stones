@@ -28,7 +28,37 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  if (jewels === '' || stones === '') {
+    return 0;
+  }
+
+  let jewelsNoneSumb = '';
+
+  for (let i = 0; i < jewels.length; i++) {
+    if (jewels[i].toLowerCase() >= 'a' && jewels[i].toLowerCase() <= 'z') {
+      jewelsNoneSumb += jewels[i];
+    }
+  }
+
+  let sortJewels = '';
+
+  for (let i = 0; i < jewelsNoneSumb.length; i++) {
+    if (sortJewels.indexOf(jewelsNoneSumb[i]) === -1) {
+      sortJewels += jewelsNoneSumb[i];
+    }
+  }
+
+  let countStones = 0;
+
+  for (let i = 0; i < sortJewels.length; i++) {
+    for (let j = 0; j < stones.length; j++) {
+      if (sortJewels[i] === stones[j]) {
+        countStones++;
+      }
+    }
+  }
+
+  return countStones;
 }
 
 module.exports = numJewelsInStones;
