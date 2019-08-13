@@ -27,8 +27,6 @@
  *
  * @return {number}
  */
-// ('z123!_', 'ZZZ!ZZZ123_1')
-
 function numJewelsInStones(jewels, stones) {
   let countJewelsInStone = 0;
   const filterJevels = jewels.replace(/[^a-zA-Z]/g, '');
