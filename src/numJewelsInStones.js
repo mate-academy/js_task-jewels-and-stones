@@ -29,7 +29,7 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
-  if (jewels.length === '') {
+  if (jewels === '') {
     return 0;
   }
 
