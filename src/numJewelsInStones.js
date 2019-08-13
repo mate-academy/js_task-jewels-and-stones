@@ -28,7 +28,25 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  const reg1 = new RegExp('[a-z]');
+  const reg2 = new RegExp('[A-Z]');
+
+  const jewelsDistinct = [...new Set(jewels)]
+    .filter(char => reg1.test(char) || reg2.test(char));
+  const stoneArray = Array.from(stones)
+    .filter(char => reg1.test(char) || reg2.test(char));
+
+  let count = 0;
+
+  stoneArray.forEach(char => {
+    jewelsDistinct.forEach(jewel => {
+      if (char === jewel) {
+        count++;
+      }
+    });
+  });
+
+  return count;
 }
 
 module.exports = numJewelsInStones;
