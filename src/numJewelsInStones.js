@@ -33,18 +33,18 @@ function numJewelsInStones(jewels, stones) {
   }
 
   const specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
-  let res = 0;
+  let count = 0;
 
   for (let i = 0; i < stones.length; i++) {
     if (!isNaN(stones[i])) {
       continue;
     }
     if (jewels.includes(stones[i]) && !specialChars.includes(stones[i])) {
-      res++;
+      count++;
     }
   }
 
-  return res;
+  return count;
 }
 
 module.exports = numJewelsInStones;
