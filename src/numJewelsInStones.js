@@ -35,14 +35,11 @@ function numJewelsInStones(jewels, stones) {
   const specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
   let res = 0;
 
-  for (let i = 0; i < specialChars.length; i++) {
-    if (jewels.includes(specialChars[i])) {
-      return 0;
-    }
-  }
-
   for (let i = 0; i < stones.length; i++) {
-    if (jewels.includes(stones[i])) {
+    if (!isNaN(stones[i])) {
+      continue;
+    }
+    if (jewels.includes(stones[i]) && !specialChars.includes(stones[i])) {
       res++;
     }
   }
