@@ -29,15 +29,18 @@
  */
 function numJewelsInStones(jewels, stones) {
   const stonesClean = stones.replace(/[^a-zA-Z ]/gi, '');
-  if (jewels === '' || stonesClean === '') {
+  let sum = 0;
+
+  if (!jewels || !stonesClean) {
     return 0;
   }
-  let sum = 0;
+
   for (let i = 0; i < stonesClean.length; i++) {
     if (jewels.includes(stonesClean[i])) {
       sum++;
     }
   }
+
   return sum;
 }
 
