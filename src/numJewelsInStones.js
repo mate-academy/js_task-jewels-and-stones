@@ -31,15 +31,15 @@ function numJewelsInStones(jewels, stones) {
   const stonesElements = stones.replace(/[^a-zA-Z]+/g, '');
   const jewelsElements = jewels.replace(/[^a-zA-Z]+/g, '');
 
-  let result = 0;
+  let matchesCounter = 0;
 
   for (let i = 0; i < stonesElements.length; i++) {
     if (jewelsElements.includes(stonesElements[i]) === true) {
-      result++;
+      matchesCounter++;
     }
   }
 
-  return result;
+  return matchesCounter;
 }
 
 module.exports = numJewelsInStones;
