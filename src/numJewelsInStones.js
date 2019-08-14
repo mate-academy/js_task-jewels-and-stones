@@ -11,7 +11,7 @@
  * considered a different type of stone from "A".
  *
  * Example 1:
- * Input: jewels = "aA", stones = "aAAbbbb"
+ * Input: jewels = "aA", stones = "AaAbbbb"
  * Output: 3
  *
  * Example 2:
@@ -29,6 +29,13 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
+  let count = 0;
+  const clearJewels = jewels.match(/[A-Za-z]/g).join('');
+  for (let i = 0; i < stones.length; i++) {
+    if (clearJewels.includes(stones[i])) {
+      count++;
+    }
+  }
+  return count;
 }
-
 module.exports = numJewelsInStones;
