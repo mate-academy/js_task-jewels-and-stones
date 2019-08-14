@@ -32,6 +32,7 @@ function numJewelsInStones(jewels, stones) {
   const x = [...new Set(jewels.split(''))]
     .toString()
     .replace(/[^a-zA-Z ]/g, '');
+
   for (let i = 0; i < x.length; i++) {
     for (let j = 0; j < stones.length; j++) {
       if (x[i] === stones[j]) {
@@ -39,6 +40,7 @@ function numJewelsInStones(jewels, stones) {
       }
     }
   }
+
   return count;
 }
 
