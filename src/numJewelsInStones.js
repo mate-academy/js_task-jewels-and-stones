@@ -36,6 +36,9 @@ function numJewelsInStones(jewels, stones) {
       count++;
     }
   }
-  return count;
+  if (count) {
+    return count;
+  }
+  return 0;
 }
 module.exports = numJewelsInStones;
