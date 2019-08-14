@@ -30,13 +30,13 @@
 function numJewelsInStones(jewels, stones) {
   // write code here
   let count = 0;
-  const clearJewels = jewels.match(/[A-Za-z]/g).join('');
-  for (let i = 0; i < stones.length; i++) {
-    if (clearJewels.includes(stones[i])) {
-      count++;
+  if (jewels) {
+    const clearJewels = jewels.match(/[A-Za-z]/g).join('');
+    for (let i = 0; i < stones.length; i++) {
+      if (clearJewels.includes(stones[i])) {
+        count++;
+      }
     }
-  }
-  if (count) {
     return count;
   }
   return 0;
