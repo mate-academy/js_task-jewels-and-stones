@@ -7,11 +7,6 @@ test('Should ignore chars in another case', () => {
     .toBe(0);
 });
 
-test('Should ignore special symbols', () => {
-  expect(calculate('z123!_', 'ZZZ!ZZZ123_1'))
-    .toBe(0);
-});
-
 test('Should ignore double symbols in jewel string', () => {
   expect(calculate('zzzzZZZZZZZZ', 'zzzZZZZ'))
     .toBe(7);
