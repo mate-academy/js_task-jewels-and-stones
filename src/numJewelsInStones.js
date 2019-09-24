@@ -29,9 +29,9 @@
  */
 function numJewelsInStones(jewels, stones) {
   const arrJewels = jewels.split('');
-  let ore = stones.match(/[A-Z]|[a-z]/g);
+  const ore = stones.match(/[A-Z]|[a-z]/g);
   if (ore === null) {
-    ore = [];
+    return 0;
   };
   return ore.filter(stone => arrJewels.indexOf(stone) !== -1).length;
 }
