@@ -35,6 +35,7 @@ function numJewelsInStones(jewels, stones) {
       jewelsCounter++;
     }
   }
+  
   return jewelsCounter;
 }
 
