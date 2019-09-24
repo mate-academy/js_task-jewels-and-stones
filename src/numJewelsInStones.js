@@ -29,11 +29,13 @@
  */
 function numJewelsInStones(jewels, stones) {
   let coinsidenceCount = 0;
+
   for (let i = 0; i < stones.length; i++) {
     if (jewels.includes(stones[i]) && stones[i].match(/[a-z]/gi)) {
       coinsidenceCount++;
     }
   }
+
   return coinsidenceCount;
 }
 
