@@ -29,6 +29,44 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
+  let count = 0;
+
+  const arrJewels = jewels.split('');
+
+  const newJewels = arrJewels.filter(function(item, pos) {
+    return arrJewels.indexOf(item) === pos;
+  });
+
+  const a = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'];
+  const b = ['N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+  const filter = [];
+
+  for (let i = 0; i < newJewels.length; i++) {
+    for (let j = 0; j < a.length; j++) {
+      if (newJewels[i] === a[j] || newJewels[i] === a[j].toLocaleLowerCase()) {
+        filter.push(newJewels[i]);
+      }
+    }
+  }
+
+  for (let i = 0; i < newJewels.length; i++) {
+    for (let j = 0; j < b.length; j++) {
+      if (newJewels[i] === b[j] || newJewels[i] === b[j].toLocaleLowerCase()) {
+        filter.push(newJewels[i]);
+      }
+    }
+  }
+
+  for (let i = 0; i < filter.length; i++) {
+    for (let j = 0; j < stones.length; j++) {
+      if (filter[i] === stones[j]) {
+        count++;
+      }
+    }
+  }
+
+  return count;
 }
 
 module.exports = numJewelsInStones;
