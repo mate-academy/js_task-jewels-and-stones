@@ -28,8 +28,12 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  const arr = jewels.split('');
-  return stones.split('').filter(stone => arr.indexOf(stone) !== -1).length;
+  const arrJewels = jewels.split('');
+  let ore = stones.match(/[A-Z]|[a-z]/g);
+  if (ore === null) {
+    ore = [];
+  };
+  return ore.filter(stone => arrJewels.indexOf(stone) !== -1).length;
 }
 
 module.exports = numJewelsInStones;
