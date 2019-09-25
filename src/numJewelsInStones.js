@@ -29,11 +29,14 @@
  */
 function numJewelsInStones(jewels, stones) {
   let counter = 0;
+  const match = stones.match(/[a-z]/ig);
+
   for (let i = 0; i < stones.length; i++) {
-    if (jewels.includes(stones[i]) && stones[i].match(/[a-z]/ig)) {
+    if (jewels.includes(match[i])) {
       counter++;
     }
   }
+
   return counter;
 }
 
