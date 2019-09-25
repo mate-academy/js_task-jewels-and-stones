@@ -31,7 +31,8 @@ function numJewelsInStones(jewels, stones) {
   let count = 0;
 
   for (let i = 0; i < stones.length; i++) {
-    if (jewels.includes(stones[i]) && stones[i].match(/[a-zA-Z]/)) {
+    const matchStones = stones[i].match(/[a-z]/i);
+    if (jewels.includes(stones[i]) && matchStones) {
       count++;
     }
   }
