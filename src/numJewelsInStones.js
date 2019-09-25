@@ -38,9 +38,6 @@ function numJewelsInStones(jewels, stones) {
     if (letterJewels.includes(stones[i])) {
       result.push(stones[i]);
     }
-    if (result.toString() === '') {
-      return 0;
-    }
   }
 
   return result.length;
