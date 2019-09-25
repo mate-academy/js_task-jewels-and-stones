@@ -32,10 +32,8 @@ function numJewelsInStones(jewels, stones) {
   let unique = jewels;
   const jewelsLength = jewels.length;
   for (let i = 0; i < jewelsLength; i++) {
-    for (let j = i + 1; j < jewelsLength; j++) {
-      if (unique[i] === unique[j]) {
-        unique = unique.replace(unique[i], '.');
-      }
+    if (unique[i] === unique[i + 1]) {
+      unique = unique.replace(unique[i], '.');
     }
   }
 
