@@ -28,7 +28,7 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  const numbers = /[0-9!_]/g;
+  const numbers = /[^\w]/g;
   const clearedJewels = jewels.replace(numbers, '');
   const clearedStones = stones.replace(numbers, '');
   let jewelCounter = 0;
