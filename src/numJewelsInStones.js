@@ -36,9 +36,9 @@ function numJewelsInStones(jewels, stones) {
       unique = unique.replace(unique[i], '.');
     }
   }
-
+  const pattern = /[A-Z]/i;
   for (let i = 0; i < jewelsLength; i++) {
-    if (unique[i].match(/[A-Z]/i)) {
+    if (unique[i].match(pattern)) {
       for (let j = 0; j < stones.length; j++) {
         if (unique[i] === stones[j]) {
           count++;
