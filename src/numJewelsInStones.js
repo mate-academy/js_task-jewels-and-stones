@@ -28,14 +28,11 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  let jewelsOnlyLetter = '';
-  for (let i = 0; i < jewels.length; i++) {
-    if (((jewels.charCodeAt(i) >= 65) && (jewels.charCodeAt(i) <= 90))
-       || ((jewels.charCodeAt(i) >= 97) && (jewels.charCodeAt(i) <= 122))) {
-      jewelsOnlyLetter += jewels.charAt(i);
-    }
-  }
   let count = 0;
+  const jewelsOnlyLetter = jewels.match(/[a-z]/gi);
+  if (jewelsOnlyLetter === null) {
+    return 0;
+  }
   for (let i = 0; i < stones.length; i++) {
     if (jewelsOnlyLetter.includes(stones[i])) {
       count++;
