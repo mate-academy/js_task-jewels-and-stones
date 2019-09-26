@@ -28,23 +28,20 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
+  if (jewels === '') {
+    return 0;
+  }
   let count = 0;
   let unique = jewels;
-  const jewelsLength = jewels.length;
-  for (let i = 0; i < jewelsLength; i++) {
+  for (let i = 0; i < jewels.length; i++) {
     if (unique[i] === unique[i + 1]) {
       unique = unique.replace(unique[i], '.');
     }
   }
-  const pattern = /[A-Z]/i;
-  for (let i = 0; i < jewelsLength; i++) {
-    if (unique[i].match(pattern)) {
-      for (let j = 0; j < stones.length; j++) {
-        if (unique[i] === stones[j]) {
-          count++;
-        }
-      }
-    }
+  const pattern = /[A-Z]/ig;
+  const letter = unique.match(pattern);
+  for (let i = 0; i < letter.length; i++) {
+    count += stones.split(letter[i]).length - 1;
   }
 
   return count;
