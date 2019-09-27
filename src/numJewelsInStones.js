@@ -31,17 +31,18 @@ function numJewelsInStones(jewels, stones) {
   if (jewels === '') {
     return 0;
   }
-  let count = 0;
-  let unique = jewels;
-  for (let i = 0; i < jewels.length; i++) {
-    if (unique[i] === unique[i + 1]) {
-      unique = unique.replace(unique[i], '.');
-    }
+  let unique = '';
+  const set = new Set();
+  jewels.split('').forEach(el => set.add(el));
+  for (const item of set) {
+    unique += item;
   }
+
+  let count = 0;
   const pattern = /[A-Z]/ig;
-  const letter = unique.match(pattern);
-  for (let i = 0; i < letter.length; i++) {
-    count += stones.split(letter[i]).length - 1;
+  unique = unique.match(pattern);
+  for (let i = 0; i < unique.length; i++) {
+    count += stones.split(unique[i]).length - 1;
   }
 
   return count;
