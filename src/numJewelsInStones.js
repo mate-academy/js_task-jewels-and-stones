@@ -28,9 +28,12 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  return jewels.length === 0 ? 0
-    : [...stones].filter(item => jewels.match(/[a-zA-Z]/g)
-      .includes(item)).length;
+  if (jewels.length === 0) {
+    return 0;
+  }
+
+  return [...stones].filter(item => jewels.match(/[a-zA-Z]/g)
+    .includes(item)).length;
 }
 
 module.exports = numJewelsInStones;
