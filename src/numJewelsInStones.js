@@ -35,10 +35,11 @@ function numJewelsInStones(jewels, stones) {
   let matches = 0;
   stones = stones.match(/[a-zA-Z]/g);
   for (let i = 0; i < jewels.length; i++) {
-    if (jewels[i] !== jewels[i + 1])
-    for (let j = 0; j < stones.length; j++) {
-      if (jewels[i] === stones[j]) {
-        matches++;
+    if (jewels[i] !== jewels[i + 1]) {
+      for (let j = 0; j < stones.length; j++) {
+        if (jewels[i] === stones[j]) {
+          matches++;
+        }
       }
     }
   }
