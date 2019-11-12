@@ -28,25 +28,19 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  let count = 0;
-  const jewelsArr = jewels.split('');
-  const jewelsArrUnique = [];
+  const selectJewels = jewels.match(/[a-zA-Z]/g);
+  let counter = 0;
 
-  for (let x = 0; x < jewels.length; x++) {
-    if (!jewelsArrUnique.includes(jewelsArr[x])
-      && jewelsArr[x].match(/[a-z]/gi)) {
-      jewelsArrUnique.push(jewelsArr[x]);
-    }
+  if (jewels.length === 0) {
+    return counter;
   }
-  const stonesArr = stones.split('');
 
   for (let i = 0; i < stones.length; i++) {
-    if (jewelsArrUnique.includes(stonesArr[i])) {
-      count++;
+    if (selectJewels.includes(stones[i])) {
+      counter++;
     }
   }
-
-  return count;
+  return counter;
 }
 
 module.exports = numJewelsInStones;
