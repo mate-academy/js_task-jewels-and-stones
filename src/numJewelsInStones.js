@@ -28,7 +28,16 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let sum = 0;
+  for (let i = 0; i < stones.length; i++) {
+    if (jewels.includes('123', '_', '!')) {
+      return 0;
+    }
+    if (jewels.indexOf(stones[i]) !== -1) {
+      sum++;
+    }
+  }
+  return sum;
 }
 
 module.exports = numJewelsInStones;
