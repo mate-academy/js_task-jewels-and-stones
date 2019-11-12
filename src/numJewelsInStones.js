@@ -29,7 +29,7 @@
  */
 function numJewelsInStones(jewels, stones) {
   let stonesSum = 0;
-  const normalizedStones = stones.replace(/[^a-zA-Z ]/g, '');
+  const normalizedStones = stones.replace(/[^a-zA-Z]/g, '');
 
   for (let i = 0; i < normalizedStones.length; i++) {
     if (jewels.includes(normalizedStones[i])) {
