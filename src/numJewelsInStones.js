@@ -29,17 +29,15 @@
  */
 function numJewelsInStones(jewels, stones) {
   let countJewels = 0;
-  const regExpNotWords = /[^\w]|\d/g;
+  const pattern = /[^\w]|\d/g;
 
-  if (jewels.match(regExpNotWords)) {
+  if ((jewels.match(pattern))) {
     return countJewels;
   }
 
-  const somejewelsArray = jewels.split('');
-
-  for (let pos = 0; pos < stones.length; pos++) {
-    for (let i = 0; i < stones.length; i++) {
-      if (somejewelsArray[i] === stones.charAt(pos)) {
+  for (let i = 0; i < stones.length; i++) {
+    for (let j = 0; j < stones.length; j++) {
+      if (jewels[j] === stones[i]) {
         countJewels++;
       }
     }
