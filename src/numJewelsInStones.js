@@ -28,7 +28,7 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  const normalizedStones = stones.replace(/[^a-zA-Z ]/g, '');
+  const normalizedStones = stones.replace(/[^a-zA-Z]/g);
   let counterJewels = 0;
 
   for (let i = 0; i < normalizedStones.length; i++) {
