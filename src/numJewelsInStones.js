@@ -31,9 +31,10 @@ function numJewelsInStones(jewels, stones) {
   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
   let repeat = 0;
   const stonesSplit = stones.split('');
+  const stonesToNormalize = stones.toLowerCase().split('');
 
   for (let i = 0; i < stonesSplit.length; i++) {
-    if (alphabet.indexOf(stonesSplit[i].toLowerCase()) > -1
+    if (alphabet.indexOf(stonesToNormalize[i]) > -1
     && jewels.indexOf(stonesSplit[i]) > -1) {
       repeat++;
     }
