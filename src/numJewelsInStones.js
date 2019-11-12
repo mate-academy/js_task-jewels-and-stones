@@ -37,14 +37,10 @@ function numJewelsInStones(jewels, stones) {
 
   for (let i = 0; i < stones.length; i++) {
     for (let j = 0; j < stones.length; j++) {
-      if (jewels[j] === stones[i]) {
+      if (jewels[j] === stones[i] && countJewels < stones.length) {
         countJewels++;
       }
     }
-  }
-
-  if (countJewels > stones.length) {
-    countJewels = stones.length;
   }
 
   return countJewels;
