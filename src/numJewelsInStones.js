@@ -28,7 +28,18 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let repeat = 0;
+  const stonesSplit = stones.split('');
+
+  for (let i = 0; i < stonesSplit.length; i++) {
+    if (alphabet.indexOf(stonesSplit[i].toLowerCase()) > -1) {
+      if (jewels.indexOf(stonesSplit[i]) > -1) {
+        repeat++;
+      }
+    }
+  }
+  return repeat;
 }
 
 module.exports = numJewelsInStones;
