@@ -27,8 +27,32 @@
  *
  * @return {number}
  */
+
+function onlyUnique(value, index, self) {
+  return self.indexOf(value) === index;
+}
+
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  if (jewels === '' || stones === '') {
+    return 0;
+  }
+
+  const reg = RegExp(/[A-Za-z]/, 'ig');
+  const stonesLetters = stones.match(reg);
+  const stonesJewels = jewels.match(reg);
+
+  const uniqueJewels = stonesJewels.filter(onlyUnique);
+  let number = 0;
+
+  for (let i = 0; i < stonesLetters.length; i++) {
+    for (let j = 0; j < uniqueJewels.length; j++) {
+      if (stonesLetters[i] === uniqueJewels[j]) {
+        number++;
+      }
+    }
+  }
+
+  return number;
 }
 
 module.exports = numJewelsInStones;
