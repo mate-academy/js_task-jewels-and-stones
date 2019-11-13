@@ -27,8 +27,25 @@
  *
  * @return {number}
  */
-function numJewelsInStones(jewels, stones) {
-  // write code here
+
+function numJewelsInStones(jewels = '', stones = '') {
+  if (jewels.length === 0 || stones.length === 0) {
+    return 0;
+  }
+
+  let count = 0;
+  const excludes = '0123456789_!';
+
+  for (const letters of stones) {
+    if (excludes.includes(letters)) {
+      continue;
+    }
+    if (jewels.includes(letters)) {
+      count++;
+    }
+  }
+
+  return count;
 }
 
 module.exports = numJewelsInStones;
