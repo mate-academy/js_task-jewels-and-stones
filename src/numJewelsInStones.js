@@ -28,7 +28,7 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  const reg = jewels.match(/[A,Z,z]/g);
+  const reg = jewels.match(/[A-Z,a-z]/g);
   let count = 0;
   if (jewels.length === 0) {
     return 0;
