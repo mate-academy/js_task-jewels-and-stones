@@ -32,8 +32,7 @@ function numJewelsInStones(jewels, stones) {
   const stonesNormalized = stones.replace(/[^a-zA-Z]/g, '');
 
   for (let i = 0; i < stonesNormalized.length; i++) {
-    //  if (jewels.includes(stonesNormalized[i])) {
-    if (jewels.indexOf(stonesNormalized[i]) !== -1) {
+    if (jewels.includes(stonesNormalized[i])) {
       jewelsCounter++;
     }
   }
