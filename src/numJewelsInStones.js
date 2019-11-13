@@ -30,12 +30,11 @@
 function numJewelsInStones(jewels, stones) {
   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
   let repeat = 0;
-  const stonesArray = stones;
   const stonesToNormalize = stones.toLowerCase();
 
-  for (let i = 0; i < stonesArray.length; i++) {
+  for (let i = 0; i < stones.length; i++) {
     if (alphabet.includes(stonesToNormalize[i])
-    && jewels.includes(stonesArray[i])) {
+    && jewels.includes(stones[i])) {
       repeat++;
     }
   }
