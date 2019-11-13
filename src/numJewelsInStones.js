@@ -29,11 +29,14 @@
  */
 function numJewelsInStones(jewels, stones) {
   let sum = 0;
+
+  if (jewels.length === 0 || stones.length === 0) {
+    return sum;
+  }
+
+  const jewelsMatch = jewels.match(/[a-zA-Z]/g);
   for (let i = 0; i < stones.length; i++) {
-    if (jewels.includes('123', '_', '!')) {
-      return 0;
-    }
-    if (jewels.indexOf(stones[i]) !== -1) {
+    if (jewelsMatch.includes(stones[i])) {
       sum++;
     }
   }
