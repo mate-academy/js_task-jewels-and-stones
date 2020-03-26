@@ -36,7 +36,9 @@ function numJewelsInStones(jewels, stones) {
   }
 
   for (const s of stones) {
-    if (jewels.includes(s) && (s !== '!') && (s !== '_') && !(+s)) {
+    if (jewels.includes(s)
+      && (s.toUpperCase() !== s.toLowerCase())
+      && !(+s)) {
       sum++;
     }
   }
