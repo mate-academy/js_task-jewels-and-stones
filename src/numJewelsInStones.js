@@ -30,7 +30,7 @@
 function numJewelsInStones(jewels, stones) {
   let count = 0;
 
-  (stones.match(/[a-zA-Z]/g) || []).map(el => {
+  (stones.match(/[a-zA-Z]/g) || []).forEach(el => {
     if (jewels.includes(el)) {
       count++;
     }
