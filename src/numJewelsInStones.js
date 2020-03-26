@@ -32,8 +32,8 @@ function numJewelsInStones(jewels, stones) {
 
   for (let i = 0; i < stones.length; i++) {
     if ((jewels.includes(stones[i]))
-    && (stones[i] !== '!')
-    && (stones[i] !== '_')
+    && (stones[i].toUpperCase() !== stones[i].toLowerCase())
+
     && (!parseInt(stones[i]))) {
       sum += 1;
     }
