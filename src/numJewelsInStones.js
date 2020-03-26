@@ -32,21 +32,18 @@ function numJewelsInStones(jewels, stones) {
     return 0;
   }
 
-  const arrJewels = jewels.match(/[a-zA-Z]/g);
-
-  const uniqueArrJewels = arrJewels
-    .filter((value, index, self) => self.indexOf(value) === index);
   const arrStones = stones.split('');
-  const arrResult = [];
+  const arrJewels = jewels.match(/[a-zA-Z]/g)
+    .filter((value, index, self) => self.indexOf(value) === index);
+  let count = 0;
 
-  for (let i = 0; i < uniqueArrJewels.length; i++) {
-    arrStones.includes(uniqueArrJewels[i])
-      ? arrResult.push(arrStones.filter(
-        item => item === uniqueArrJewels[i]).length)
-      : arrResult.push(0);
+  for (let i = 0; i < arrJewels.length; i++) {
+    for (let j = 0; j < arrStones.length; j++) {
+      arrJewels[i] === arrStones[j] ? count++ : count += 0;
+    }
   }
 
-  return arrResult.reduce((sum, current) => sum + current, 0);
+  return count;
 }
 
 module.exports = numJewelsInStones;
