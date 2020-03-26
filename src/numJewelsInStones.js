@@ -37,19 +37,17 @@ function numJewelsInStones(jewels, stones) {
     } else {
       jewelsObject[jewels[i]] = jewels[i];
       jewelsObject[x] = jewels[i];
+
+      if (jewelsObject[x] === '!') {
+        return 0;
+      }
       x++;
     }
   }
 
   for (let i = 0; i < stones.length; i++) {
-    for (let j = 0; j < x; j++) {
-      if (jewelsObject[j] === '!') {
-        return 0;
-      }
-
-      if (jewelsObject[j] === stones[i]) {
-        jewelsCount++;
-      }
+    if (stones[i] in jewelsObject) {
+      jewelsCount++;
     }
   }
 
