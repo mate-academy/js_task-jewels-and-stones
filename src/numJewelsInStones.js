@@ -29,6 +29,32 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
+  let result = 0;
+  let processedJewels = '';
+
+  for (let i = 0; i < jewels.length; i++) {
+    const jewel = jewels[i];
+
+    if (jewel.toLowerCase() === jewel.toUpperCase()) {
+      return 0;
+    }
+
+    if (processedJewels.includes(jewel)) {
+      continue;
+    }
+
+    processedJewels += jewel;
+
+    for (let j = 0; j < stones.length; j++) {
+      const stone = stones[j];
+
+      if (stone === jewel) {
+        result++;
+      }
+    }
+  }
+
+  return result;
 }
 
 module.exports = numJewelsInStones;
