@@ -28,22 +28,36 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  const res = [];
-  const set = new Set();
+  // Старое
+  // const res = [];
+  // const set = new Set();
 
-  for (let i = 0; i < jewels.length; i++) {
-    if (!set.has(jewels[i])) {
-      set.add(jewels[i]);
-    };
-  };
+  // for (let i = 0; i < jewels.length; i++) {
+  //   if (!set.has(jewels[i])) {
+  //     set.add(jewels[i]);
+  //   };
+  // };
 
-  stones.replace(/[1-9_!=+(),@#$%^&*]/gi, '').split('').map(item => {
-    if (set.has(item)) {
-      res.push(item);
-    };
-  });
+  // stones.replace(/[1-9_!=+(),@#$%^&*]/gi, '').split('').map(item => {
+  //   if (set.has(item)) {
+  //     res.push(item);
+  //   };
+  // });
 
-  return res.length;
+  // return res.length;
+  // Новое
+  let res = 0;
+  const jews = jewels.replace(/[1-9_!=+(),@#$%^&*]/gi, '').match(/[A-Za-z]/g);
+
+  for (const value of stones) {
+    if (jewels.length > 0) {
+      if (jews.includes(value)) {
+        res++;
+      }
+    }
+  }
+
+  return res;
 }
 
 module.exports = numJewelsInStones;
