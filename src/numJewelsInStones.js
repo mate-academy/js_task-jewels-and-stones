@@ -39,7 +39,9 @@ function numJewelsInStones(jewels, stones) {
 
   for (let i = 0; i < arrJewels.length; i++) {
     for (let j = 0; j < arrStones.length; j++) {
-      arrJewels[i] === arrStones[j] ? count++ : count += 0;
+      if (arrJewels[i] === arrStones[j]) {
+        count++;
+      }
     }
   }
 
