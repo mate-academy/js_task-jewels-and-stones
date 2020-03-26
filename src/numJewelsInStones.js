@@ -34,7 +34,9 @@ function numJewelsInStones(jewels, stones) {
   if (stones === '') {
     return 0
   } else {
-    stones.split("").map(char => jewels.includes(char) ? count++ : char);
+    for (let i = 0; i < stones.length; i++) {
+      jewels.includes(stones[i]) ? count++ : stones[i];
+    }
     return count;
   }
 }
