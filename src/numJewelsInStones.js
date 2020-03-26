@@ -28,7 +28,25 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let sum = 0;
+  let uniqueArray = '';
+
+  if (jewels === '' || stones === '') {
+    return 0;
+  }
+
+  uniqueArray = jewels.replace(/[^A-Za-zА-Яа-яЁё]/g, '');
+  uniqueArray = [ ...new Set(uniqueArray) ];
+
+  for (let i = 0; i < uniqueArray.length; i++) {
+    for (let index = 0; index < stones.length; index++) {
+      if (uniqueArray[i] === stones.charAt(index)) {
+        sum++;
+      }
+    }
+  }
+
+  return sum;
 }
 
 module.exports = numJewelsInStones;
