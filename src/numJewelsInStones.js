@@ -30,23 +30,19 @@
 function numJewelsInStones(jewels, stones) {
   let jewelsCount = 0;
   const jewelsObject = {};
-  let x = 0;
 
-  for (let i = 0; i < jewels.length; i++) {
-    if (jewels[i] in jewelsObject) {
-    } else {
-      jewelsObject[jewels[i]] = jewels[i];
-      jewelsObject[x] = jewels[i];
+  for (const char of jewels) {
+    if (char in jewelsObject === false) {
+      jewelsObject[char] = char;
 
-      if (jewelsObject[x] === '!') {
+      if (char === '!') {
         return 0;
       }
-      x++;
     }
   }
 
-  for (let i = 0; i < stones.length; i++) {
-    if (stones[i] in jewelsObject) {
+  for (const char of stones) {
+    if (char in jewelsObject === true) {
       jewelsCount++;
     }
   }
