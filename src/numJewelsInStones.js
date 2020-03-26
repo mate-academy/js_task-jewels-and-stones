@@ -32,16 +32,12 @@ function numJewelsInStones(jewels, stones) {
     return 0;
   }
 
-  const arrStones = stones.split('');
-  const arrJewels = jewels.match(/[a-zA-Z]/g)
-    .filter((value, index, self) => self.indexOf(value) === index);
+  const arrStones = stones.match(/[a-zA-Z]/g);
   let count = 0;
 
-  for (let i = 0; i < arrJewels.length; i++) {
-    for (let j = 0; j < arrStones.length; j++) {
-      if (arrJewels[i] === arrStones[j]) {
-        count++;
-      }
+  for (let i = 0; i < arrStones.length; i++) {
+    if (jewels.includes(arrStones[i])) {
+      count++;
     }
   }
 
