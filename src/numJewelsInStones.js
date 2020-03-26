@@ -30,17 +30,17 @@
 function numJewelsInStones(jewels, stones) {
   // write code here
 
-  const need = jewels.replace(/[\W\d_]/g, '');
-  let have = stones.replace(/[\W\d_]/g, '');
+  const strJewels = jewels.replace(/[\W\d_]/g, '');
+  let strStones = stones.replace(/[\W\d_]/g, '');
 
   let count = 0;
 
-  for (let i = 0; i < need.length; i++) {
-    while (have.indexOf(need[i]) + 1) {
+  for (let i = 0; i < strJewels.length; i++) {
+    while (strStones.indexOf(strJewels[i]) >= 0) {
       count += 1;
 
-      have = have.slice(0, have.indexOf(need[i]))
-        + have.slice(have.indexOf(need[i]) + 1);
+      strStones = strStones.slice(0, strStones.indexOf(strJewels[i]))
+        + strStones.slice(strStones.indexOf(strJewels[i]) + 1);
     }
   }
 
