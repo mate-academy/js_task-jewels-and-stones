@@ -28,7 +28,40 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let count = 0;
+
+  if ((!stones
+    || !jewels)
+    || (testNonLetters(stones)
+    || testNonLetters(jewels))) {
+    return count;
+  }
+
+  const _jewels = [];
+
+  jewels.split('').map((x) => {
+
+    if (_jewels.indexOf(x) === -1) {
+      _jewels.push(x);
+    }
+  }
+  );
+
+  for (let i = 0; i < stones.length; i++) {
+    for (let j = 0; j < _jewels.length; j++) {
+      if (stones[i] === _jewels[j]) {
+        count++;
+      }
+    }
+  }
+
+  return count;
+}
+
+function testNonLetters(str) {
+  const regex = /\W+/g;
+
+  return regex.test(str);
 }
 
 module.exports = numJewelsInStones;
