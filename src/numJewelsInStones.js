@@ -33,18 +33,15 @@ function numJewelsInStones(jewels, stones) {
 
   for (const char of sortedJewels) {
     if (str.indexOf(char) === -1) {
-      str = str + char;
+      str += char;
     }
   }
 
-  const arr = str.split('');
   let count = 0;
 
-  for (let i = 0; i < arr.length; i++) {
-    for (const char of stones) {
-      if (arr[i] === char) {
-        count++;
-      }
+  for (const char of stones) {
+    if (str.includes(char)) {
+      count++;
     }
   }
 
