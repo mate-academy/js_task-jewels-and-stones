@@ -29,17 +29,17 @@
  */
 function numJewelsInStones(jewels, stones) {
   let counter = 0;
-  const abc = 'abcdifghijklmnopqrctuvwzyz';
-  let jewels2 = '';
+  const abc = 'abcdifghijklmnopqrctuvwzyzABCDEFGHIGKLMNOPQRSTUVWXYZ';
+  let jewelsOnlyLetters = '';
 
   for (let i = 0; i < jewels.length; i++) {
-    if (abc.includes(jewels[i]) || abc.toUpperCase().includes(jewels[i])) {
-      jewels2 += jewels[i];
+    if (abc.includes(jewels[i])) {
+      jewelsOnlyLetters += jewels[i];
     }
   }
 
   for (let i = 0; i < stones.length; i++) {
-    if (jewels2.includes(stones[i])) {
+    if (jewelsOnlyLetters.includes(stones[i])) {
       counter++;
     }
   }
