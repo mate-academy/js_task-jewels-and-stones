@@ -28,7 +28,19 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let count = 0;
+
+  for (const s of stones) {
+    if (s.toLowerCase() === s.toUpperCase()) {
+      continue;
+    }
+
+    if (jewels.includes(s)) {
+      count++;
+    }
+  }
+
+  return count;
 }
 
 module.exports = numJewelsInStones;
