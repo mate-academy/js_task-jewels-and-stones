@@ -31,8 +31,11 @@ function numJewelsInStones(jewels, stones) {
   let count = 0;
 
   for (const letter of stones) {
-    if ((jewels.includes(letter)) && ((letter !== '!') && (letter !== '_')
-      && !(+letter))) {
+    if (letter.toLowerCase() === letter.toUpperCase()) {
+      continue;
+    }
+
+    if (jewels.includes(letter)) {
       count++;
     }
   }
