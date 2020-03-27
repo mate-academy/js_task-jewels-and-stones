@@ -28,24 +28,16 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  if (jewels === '' || stones === '') {
-    return 0;
-  }
+  const newJewels = jewels.replace(/[^A-Za-z]/g, '');
+  let sum = 0;
 
-  let matches = 0;
-  const newStones = stones.match(/[a-zA-Z]/g);
-
-  for (let i = 0; i < jewels.length; i++) {
-    if (jewels[i] !== jewels[i + 1]) {
-      for (let j = 0; j < newStones.length; j++) {
-        if (jewels[i] === newStones[j]) {
-          matches++;
-        }
-      }
+  for (let i = 0; i < stones.length; i++) {
+    if (newJewels.includes(stones[i])) {
+      sum++;
     }
   }
 
-  return matches;
+  return sum;
 }
 
 module.exports = numJewelsInStones;
