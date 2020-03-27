@@ -29,18 +29,10 @@
  */
 function numJewelsInStones(jewels, stones) {
   const sortedJewels = jewels.replace(/[^a-z]/gi, '');
-  let str = '';
-
-  for (const char of sortedJewels) {
-    if (str.indexOf(char) === -1) {
-      str += char;
-    }
-  }
-
   let count = 0;
 
   for (const char of stones) {
-    if (str.includes(char)) {
+    if (sortedJewels.includes(char)) {
       count++;
     }
   }
