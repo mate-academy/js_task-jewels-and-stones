@@ -26,7 +26,15 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let num = 0;
+
+  for (let i = 0; i < stones.length; i++) {
+    if (jewels.includes(stones[i])) {
+      if ((stones[i] !== '_') && (stones[i] !== '!') && isNaN(stones[i])) {
+        num = num + 1;
+      }
+    }
+  } return num;
 }
 
 module.exports = numJewelsInStones;
