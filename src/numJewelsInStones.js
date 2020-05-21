@@ -27,6 +27,20 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
+
+  let counter = 0;
+
+  const hashMap = [...new Array(256)].fill(0);
+
+  for (let i = 0; i < stones.length; i++) {
+    hashMap[stones.charCodeAt(i)]++;
+  }
+
+  for (let i = 0; i < jewels.length; i++) {
+    counter += hashMap[jewels.charCodeAt(i)];
+  }
+
+  return counter;
 }
 
 module.exports = numJewelsInStones;
