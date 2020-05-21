@@ -27,6 +27,19 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
+  let count = 0;
+  const stonesArr = stones.split('');
+  const jewelsArr = jewels.split('');
+
+  for (let i = 0; i < jewelsArr.length; i++) {
+    for (let j = 0; j < stonesArr.length; j++) {
+      if (jewelsArr[i] === stonesArr[j]) {
+        count++;
+      }
+    }
+  }
+
+  return count;
 }
 
 module.exports = numJewelsInStones;
