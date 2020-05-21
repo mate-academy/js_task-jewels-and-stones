@@ -26,17 +26,11 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  const jewelsArray = jewels.split('');
-  const stonesArray = stones.split('');
-  const stonesLength = stonesArray.length;
-  const jewelsLength = jewelsArray.length;
   let count = 0;
 
-  for (let i = 0; i < stonesLength; i++) {
-    for (let j = 0; j < jewelsLength; j++) {
-      if (stonesArray[i] === jewelsArray[j]) {
-        count++;
-      }
+  for (let i = 0; i < stones.length; i++) {
+    if (jewels.includes(stones[i])) {
+      count++;
     }
   }
 
