@@ -26,12 +26,8 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  const jewelsArray = [];
+  const jewelsArray = jewels.split('');
   let counter = 0;
-
-  for (let i = 0; i < jewels.length; i++) {
-    jewelsArray.push(jewels[i]);
-  }
 
   for (let j = 0; j < jewelsArray.length; j++) {
     for (let i = 0; i < stones.length; i++) {
