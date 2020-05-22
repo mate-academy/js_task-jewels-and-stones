@@ -30,14 +30,16 @@ function numJewelsInStones(jewels, stones) {
 
   let counter = 0;
 
-  const hashMap = [...new Array(256)].fill(0);
+  const storage = {};
 
   for (let i = 0; i < stones.length; i++) {
-    hashMap[stones.charCodeAt(i)]++;
+    storage[stones[i]] = (storage[stones[i]] + 1) || 1;
   }
 
   for (let i = 0; i < jewels.length; i++) {
-    counter += hashMap[jewels.charCodeAt(i)];
+    if (storage.hasOwnProperty(jewels[i])) {
+      counter += storage[jewels[i]];
+    }
   }
 
   return counter;
