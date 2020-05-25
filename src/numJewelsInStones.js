@@ -26,7 +26,7 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  return stones.split('').filter(char => jewels.includes(char)).length;
 }
 
 module.exports = numJewelsInStones;
