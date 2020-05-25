@@ -28,13 +28,13 @@
 function numJewelsInStones(jewels, stones) {
   let counter = 0;
 
-  for (let i = 0; i < stones.length; i++) {
-    if (jewels.includes(stones[i])) {
+  for (const stone of stones) {
+    if (jewels.includes(stone)) {
       counter += 1;
     }
   }
 
   return counter;
 }
-// console.log(numJewelsInStones("aA", "aAAbbb"));
+
 module.exports = numJewelsInStones;
