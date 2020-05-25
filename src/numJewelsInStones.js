@@ -30,7 +30,7 @@ function numJewelsInStones(jewels, stones) {
 
   for (let i = 0; i < stones.length; i++) {
     if (jewels.includes(stones[i])) {
-      counter++;
+      counter += 1;
     }
   }
 
