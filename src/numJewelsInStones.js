@@ -26,7 +26,15 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  return stones.split('').filter(char => jewels.includes(char)).length;
-}
+  // return stones.split('').filter(char => jewels.includes(char)).length;
+  let matchesCounter = 0;
 
+  for (let i = 0; i < stones.length; i++) {
+    if (jewels.includes(stones[i])) {
+      matchesCounter++;
+    }
+  }
+
+  return matchesCounter;
+}
 module.exports = numJewelsInStones;
