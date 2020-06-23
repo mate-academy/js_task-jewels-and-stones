@@ -26,7 +26,32 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let countJewels = 0;
+  let repetedSysmdol = '';
+  const alloweSymbols = 'AEIOUYBCDFGHJKLMNPQRSTVWXZaeiouybcdfghjklmnpqrstvwxz';
+
+  for (const itemInJewels of jewels) {
+    let possitionStart = 0;
+
+    if (alloweSymbols.indexOf(itemInJewels) === -1
+      || repetedSysmdol.includes(itemInJewels)) {
+      continue;
+    }
+
+    repetedSysmdol += itemInJewels;
+
+    while (true) {
+      const possitionFound = stones.indexOf(itemInJewels, possitionStart);
+
+      if (possitionFound === -1) {
+        break;
+      }
+      countJewels++;
+      possitionStart = possitionFound + 1;
+    }
+  }
+
+  return countJewels;
 }
 
 module.exports = numJewelsInStones;
