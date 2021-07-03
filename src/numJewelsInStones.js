@@ -26,7 +26,17 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  const jewelsClean = jewels.replace(/[^A-Za-z]/g, '');
+
+  if (jewelsClean === '' || stones === '') {
+    return 0;
+  };
+
+  const regex = new RegExp([...jewelsClean]
+    .map((item, i) => (i !== jewelsClean.length - 1) ? item + '|' : item)
+    .join(''), 'g');
+
+  return (stones.match(regex) || []).length;
 }
 
 module.exports = numJewelsInStones;
