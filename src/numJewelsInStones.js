@@ -26,7 +26,26 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
-}
+  const jewStr = jewels.replace(/[0-9&/\\#, =+()_!$~%.'":*?<>{}]/g, '');
+  const stoneStr = stones.replace(/[0-9&/\\#, =+()_!$~%.'":*?<>{}]/g, '');
+  const jewArray = jewStr.split('');
+  const stoneArray = stoneStr.split('');
 
+  let sum = 0;
+
+  if (jewArray.length === 0 || stoneArray.length === 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < stoneArray.length; i++) {
+      for (let j = 0; j < jewArray.length; j++) {
+        if (stoneArray[i] === jewArray[j]) {
+          sum++;
+          break;
+        }
+      }
+    }
+
+    return sum;
+  }
+}
 module.exports = numJewelsInStones;
