@@ -26,7 +26,33 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
-}
+  const lower = jewels.toLowerCase();
+  const upper = jewels.toUpperCase();
+  let result = '';
+  const countStones = [];
 
+  for (let i = 0; i < lower.length; ++i) {
+    if (lower[i] !== upper[i] || lower[i].trim() === '') {
+      result += jewels[i];
+    }
+  }
+
+  const jewelsList = result.split('').filter((item, pos, self) => {
+    return self.indexOf(item) === pos;
+  });
+
+  jewelsList.forEach(j => {
+    let pos = 0;
+    while (true) {
+      const foundPos = stones.indexOf(j, pos);
+      if (foundPos === -1) {
+        break;
+      }
+      countStones.push(foundPos);
+      pos = foundPos + 1;
+    }
+  });
+
+  return countStones.length;
+}
 module.exports = numJewelsInStones;
