@@ -27,6 +27,22 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
+
+  const strJewels = jewels.replace(/[\W\d_]/g, '');
+  let strStones = stones.replace(/[\W\d_]/g, '');
+
+  let count = 0;
+
+  for (let i = 0; i < strJewels.length; i++) {
+    while (strStones.indexOf(strJewels[i]) >= 0) {
+      count += 1;
+
+      strStones = strStones.slice(0, strStones.indexOf(strJewels[i]))
+        + strStones.slice(strStones.indexOf(strJewels[i]) + 1);
+    }
+  }
+
+  return count;
 }
 
 module.exports = numJewelsInStones;
