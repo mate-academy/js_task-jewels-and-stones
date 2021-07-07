@@ -25,8 +25,25 @@
  *
  * @return {number}
  */
+
+function isStownJewel(str, letter) {
+  if (str.includes(letter)) {
+    return true;
+  }
+  return false;
+}
+
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  const jewelsJust = jewels.replace(/[^a-zA-Z]/g, '');
+  let sumJewe = 0;
+
+  for (let i = 0; i < stones.length; i++) {
+    if (isStownJewel(jewelsJust, stones[i])) {
+      sumJewe++;
+    }
+  }
+
+  return sumJewe;
 }
 
 module.exports = numJewelsInStones;
