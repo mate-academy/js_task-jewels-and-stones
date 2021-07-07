@@ -26,7 +26,17 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  if (jewels === '') {
+    return 0;
+  }
+
+  const sortedJewels = jewels
+    .replace(/[^a-zA-Z ]/g, '')
+    .split('')
+    .join('|');
+  const jewelsRegExp = new RegExp(sortedJewels, 'g');
+
+  return (stones.match(jewelsRegExp) || []).length;
 }
 
 module.exports = numJewelsInStones;
