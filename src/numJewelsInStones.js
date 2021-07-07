@@ -27,6 +27,22 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
+
+  let counter = 0;
+
+  const storage = {};
+
+  for (let i = 0; i < stones.length; i++) {
+    storage[stones[i]] = (storage[stones[i]] + 1) || 1;
+  }
+
+  for (let i = 0; i < jewels.length; i++) {
+    if (storage.hasOwnProperty(jewels[i])) {
+      counter += storage[jewels[i]];
+    }
+  }
+
+  return counter;
 }
 
 module.exports = numJewelsInStones;
