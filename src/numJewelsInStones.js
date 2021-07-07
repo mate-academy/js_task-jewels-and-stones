@@ -26,7 +26,17 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let repeat = 0;
+  const stonesToNormalize = stones.toLowerCase();
+
+  for (let i = 0; i < stones.length; i++) {
+    if (alphabet.includes(stonesToNormalize[i])
+    && jewels.includes(stones[i])) {
+      repeat++;
+    }
+  }
+  return repeat;
 }
 
 module.exports = numJewelsInStones;
