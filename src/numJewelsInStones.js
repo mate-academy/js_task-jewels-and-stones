@@ -26,7 +26,27 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  const arrWithoutDub = [];
+
+  jewels.replace(/[^a-zA-Z ]/g, '')
+    .split('')
+    .forEach(num => {
+      if (!arrWithoutDub.includes(num)) {
+        arrWithoutDub.push(num);
+      }
+    });
+
+  let countWords = 0;
+
+  arrWithoutDub.forEach(num => {
+    for (let i = 0; i < stones.length; i++) {
+      if (stones[i] === num) {
+        countWords++;
+      }
+    };
+  });
+
+  return countWords;
 }
 
 module.exports = numJewelsInStones;
