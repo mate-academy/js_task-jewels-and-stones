@@ -26,7 +26,20 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  const jew = jewels.replace(/[^a-z]/ig, '')
+    .split('').filter(function(el, num, arr) {
+      return num === arr.indexOf(el);
+    });
+  const stone = stones.split('');
+  let sum = 0;
+  for (let i = 0; i < jew.length; i++) {
+    for (let j = 0; j < stone.length; j++) {
+      if (jew[i] === stone[j]) {
+        sum++;
+      }
+    }
+  }
+  return sum;
 }
 
 module.exports = numJewelsInStones;
