@@ -26,7 +26,17 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let output = 0;
+
+  for (const charFromStones of stones) {
+    if ((jewels.includes(charFromStones))
+      && ((charFromStones !== '!') && (charFromStones !== '_')
+      && !(+charFromStones))) {
+      output++;
+    }
+  }
+
+  return output;
 }
 
 module.exports = numJewelsInStones;
