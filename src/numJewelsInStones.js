@@ -26,7 +26,21 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let sumClone = 0;
+  const onlyLetters = /^[A-Za-z]+$/;
+
+  if (jewels.match(onlyLetters)) {
+    for (let currStone = 0; currStone <= stones.length - 1; currStone++) {
+      for (let currJewel = 0; currJewel <= jewels.length - 1; currJewel++) {
+        if (stones[currStone] === jewels[currJewel]) {
+          sumClone++;
+          break;
+        }
+      }
+    }
+  }
+
+  return sumClone;
 }
 
 module.exports = numJewelsInStones;
