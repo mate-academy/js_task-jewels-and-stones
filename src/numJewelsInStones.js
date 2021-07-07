@@ -8,7 +8,7 @@
  * You want to know how many of the stones you have are also jewels.
  *
  * Example 1:
- * Input: jewels = "aA", stones = "aAAbbbb"
+ * Input: jewels = "aA", stones = "AaAbbbb"
  * Output: 3
  *
  * Example 2:
@@ -27,6 +27,16 @@
  */
 function numJewelsInStones(jewels, stones) {
   // write code here
+  let count = 0;
+  if (jewels) {
+    const clearJewels = jewels.match(/[A-Za-z]/g).join('');
+    for (let i = 0; i < stones.length; i++) {
+      if (clearJewels.includes(stones[i])) {
+        count++;
+      }
+    }
+    return count;
+  }
+  return 0;
 }
-
 module.exports = numJewelsInStones;
