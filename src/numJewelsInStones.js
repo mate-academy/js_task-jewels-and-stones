@@ -26,7 +26,25 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let jewelStonesCounter = 0;
+
+  // проверяем строки на наличие символов
+  if (jewels.length === 0 || stones.length === 0) {
+    return 0;
+  }
+
+  // удаляем из строк все символы, кроме букв
+  const jewelsLetters = jewels.replace(/[^a-zA-Z ]/g, '');
+  const stonesLetters = stones.replace(/[^a-zA-Z ]/g, '');
+
+  // проверяем на совпадение символов и считаем количество совпадений
+  for (let i = 0; i < stonesLetters.length; i++) {
+    if (jewelsLetters.includes(stonesLetters[i])) {
+      jewelStonesCounter++;
+    }
+  }
+
+  return jewelStonesCounter;
 }
 
 module.exports = numJewelsInStones;
