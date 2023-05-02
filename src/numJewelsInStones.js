@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * You're given 2 strings:
  *  - jewels - representing the types of stones that are jewels,
@@ -26,7 +25,16 @@
  * @return {number}
  */
 function numJewelsInStones(jewels, stones) {
-  // write code here
+  let sum = 0;
+  const jewelsi = jewels.replace(/\d/g, '').replace(/[-+()_\s!]/g, '');
+  for (let i = 0; i < stones.length; i++) {
+    for (let y = 0; y < jewelsi.length; y++) {
+      if (jewelsi[y] === stones[i] && jewelsi[y] !== jewelsi[y - 1]) {
+        sum++;
+      }
+    }
+  }
+  return sum;
 }
-
+numJewelsInStones('z1Z23!_', 'ZZZ!ZZZ123_1');
 module.exports = numJewelsInStones;
